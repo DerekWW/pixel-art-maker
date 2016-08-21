@@ -5,11 +5,14 @@ var wrapper = document.getElementById('wrapper'),
     colorHolder,
     isMouseDown = false,
     clearColor,
-    colorDivs = document.getElementsByClassName('canvas');
+    colorWheel,
+    colorDivs = document.getElementsByClassName('canvas'),
+    body = document.getElementById('body');
 
 colorSelector.style.width ='100%';
 colorSelector.style.clear = 'both';
 colorSelector.style.height = '50px';
+colorSelector.style.clear = 'right';
 
 wrapper.style.width = '100%';
 
@@ -28,6 +31,19 @@ for (var i = 0; i < colorArray.length; i++) {
   newDiv.addEventListener('click', stealColor);
 }
 
+colorWheel = document.createElement('input');
+colorWheel.style.border = '1px solid black';
+colorWheel.style.float = 'right';
+colorWheel.style.height = '40px';
+colorWheel.style.width = '40px';
+colorWheel.style.padding = '0px';
+colorWheel.style.margin = '0px 5px 0px 0px';
+colorWheel.style.backgroundColor = 'white';
+colorWheel.type = 'color';
+colorWheel.value = '#ff6666';
+colorWheel.addEventListener('change', stealColorWheel);
+colorSelector.appendChild(colorWheel);
+
 clearColor = document.createElement('div');
 clearColor.style.border = '1px solid black';
 clearColor.style.float = 'right';
@@ -38,13 +54,13 @@ clearColor.style.margin = '0px 5px 0px 0px';
 clearColor.addEventListener('click', clearAll);
 colorSelector.appendChild(clearColor);
 
-
 colorHolder = document.createElement('div');
 colorHolder.style.border = '1px solid black';
 colorHolder.style.float = 'right';
 colorHolder.style.height = '40px';
 colorHolder.style.width = '40px';
 colorHolder.style.borderRadius = '50%';
+colorHolder.style.margin = '0px 5px 0px 0px';
 colorHolder.addEventListener('click', paintAll);
 colorSelector.appendChild(colorHolder);
 
@@ -66,9 +82,9 @@ body.addEventListener('mousedown', function() {
     isMouseDown = true;
   });
 
-  body.addEventListener('mouseup', function() {
-    isMouseDown = false;
-  });
+body.addEventListener('mouseup', function() {
+  isMouseDown = false;
+});
 
 function dragOver(event) {
   if(isMouseDown === true){
@@ -94,4 +110,8 @@ function pasteColor(event) {
 
 function stealColor(event) {
   colorHolder.style.backgroundColor = event.target.style.backgroundColor;
+}
+
+function stealColorWheel(event) {
+  colorHolder.style.backgroundColor = event.target.value;
 }
