@@ -7,15 +7,34 @@ var wrapper = document.getElementById('wrapper'),
     clearColor,
     colorWheel,
     colorDivs = document.getElementsByClassName('canvas'),
-    body = document.getElementById('body');
+    body = document.getElementById('body'),
+    para;
 
 colorSelector.style.width ='100%';
 colorSelector.style.clear = 'both';
-colorSelector.style.height = '50px';
-colorSelector.style.clear = 'right';
+colorSelector.style.height = '42px';
+colorSelector.style.backgroundColor = 'white';
 
 wrapper.style.width = '100%';
+wrapper.style.backgroundColor = 'white';
 wrapper.addEventListener('mouseover', dragOver);
+
+body.style.width = '100%';
+body.style.margin = 'auto';
+body.style.backgroundColor = 'white';
+
+para = document.createElement('div');
+para.style.width = '100%';
+para.style.textAlign = 'center';
+para.textContent = 'PIXEL ART MAKER';
+para.style.width ='100%';
+para.style.clear = 'both';
+para.style.height = '50px';
+para.style.fontSize = 'xx-large';
+para.style.backgroundColor = 'black'
+para.style.color = 'white';
+body.insertBefore(para, colorSelector);
+
 
 for (var i = 0; i < colorArray.length; i++) {
   newDiv = document.createElement('div');
