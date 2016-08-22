@@ -15,6 +15,7 @@ colorSelector.style.height = '50px';
 colorSelector.style.clear = 'right';
 
 wrapper.style.width = '100%';
+wrapper.addEventListener('mouseover', dragOver);
 
 for (var i = 0; i < colorArray.length; i++) {
   newDiv = document.createElement('div');
@@ -64,19 +65,17 @@ colorHolder.style.margin = '0px 5px 0px 0px';
 colorHolder.addEventListener('click', paintAll);
 colorSelector.appendChild(colorHolder);
 
-for (var i = 0; i < 1404; i++) {
+for (var i = 0; i < 2200; i++) {
   newDiv = document.createElement('div');
   newDiv.style.border = '1px solid rgba(0,0,0,.05)';
   newDiv.style.float = 'left';
-  newDiv.style.height = '25px';
-  newDiv.style.width = '25px';
+  newDiv.style.height = '20px';
+  newDiv.style.width = '20px';
   newDiv.className = 'canvas';
   newDiv.id = i;
   newDiv.addEventListener('click', pasteColor);
   wrapper.appendChild(newDiv);
 }
-
-wrapper.addEventListener('mouseover', dragOver);
 
 body.addEventListener('mousedown', function() {
     isMouseDown = true;
