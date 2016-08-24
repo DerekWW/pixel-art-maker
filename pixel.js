@@ -84,7 +84,7 @@ colorHolder.style.margin = '0px 5px 0px 0px';
 colorHolder.addEventListener('click', paintAll);
 colorSelector.appendChild(colorHolder);
 
-for (var i = 0; i < 2200; i++) {
+for (var i = 0; i < 2204; i++) {
   newDiv = document.createElement('div');
   newDiv.style.border = '1px solid rgba(0,0,0,.05)';
   newDiv.style.float = 'left';
